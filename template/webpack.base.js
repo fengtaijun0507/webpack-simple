@@ -34,6 +34,11 @@ module.exports = {
       }
     ]
   },
+  vue: {
+    loaders: {
+      js: 'babel!eslint'
+    }
+  },
   devServer: {
     historyApiFallback: true,
     noInfo: true
