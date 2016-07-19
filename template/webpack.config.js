@@ -2,9 +2,9 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 var options = require('./webpack.base.js');
 options.entry = './src';
 options.output = {
-  library: 'VueSwipe',
+  library: 'VueFswipe',
   libraryTarget: 'umd',
-  filename: 'vue-swipe.js',
+  filename: 'vue-fswipe.js',
   path: './dist'
 };
 options.externals = {
