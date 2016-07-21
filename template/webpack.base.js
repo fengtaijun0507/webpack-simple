@@ -6,23 +6,36 @@ module.exports = {
     root: path.join(__dirname, 'node_modules'),
   },
   module: {
+    preLoaders: [
+      {
+        test: /\.vue$/,
+        loader: 'eslint',
+        include: /src/
+      },
+      {
+        test: /\.js$/,
+        loader: 'eslint',
+        include: /src/
+      }
+    ],
     loaders: [
       {
         test: /\.vue$/,
-        loader: 'vue'
+        loader: 'vue',
+        include: /src/
       },
       {
         test: /\.js$/,
         loader: 'babel',
-        exclude: /node_modules/
-      },
-      {
-        test: /\.json$/,
-        loader: 'json'
+        include: /src/
       },
       {
         test: /\.html$/,
         loader: 'vue-html'
+      },
+      {
+        test: /\.json$/,
+        loader: 'json'
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
@@ -35,8 +48,15 @@ module.exports = {
     ]
   },
   vue: {
+    preloaders: {
+      js: 'eslint',
+      css: 'autoprefixer!less'
+    },
     loaders: {
-      js: 'babel!eslint'
+      js: 'babel'
+    },
+    autoprefixer: {
+      browsers: ['last 40 versions']
     }
   },
   devServer: {
@@ -47,7 +67,7 @@ module.exports = {
 }
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports.devtool = '#source-map'
+  module.exports.devtool = ''
   // http://vue-loader.vuejs.org/en/workflow/production.html
   module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({
