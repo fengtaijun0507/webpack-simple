@@ -1,6 +1,9 @@
 > {{ A template directory structure for a vue component }}
-## Build Setup
+## generate directory
 
+``` bash
+  vue init fengtaijun0507/webpack-simple projectName
+```
 ``` bash
 # install dependencies
 npm install
