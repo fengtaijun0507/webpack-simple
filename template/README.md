@@ -1,5 +1,5 @@
-## A template directory structure for a vue component 
-# generate directory
+# A template directory structure for a vue component 
+## generate directory
 
 ``` bash
   vue init fengtaijun0507/webpack-simple projectName
